@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -14,21 +14,34 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import Data from "../data.json";
-import { styled } from "@mui/material/styles";
-import MiniDrawer from "../components/SideNav";
+import { Fab } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import PopupForm from "./PopupForm";
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
+// const DrawerHeader = styled("div")(({ theme }) => ({
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "flex-end",
+//   padding: theme.spacing(0, 1),
+//   // necessary for content to be below app bar
+//   ...theme.mixins.toolbar,
+// }));
 
 const Feedback = () => {
+  const [showForm, setShowForm] = useState(false);
+
+  const openForm = () => {
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+  }
+
   return (
     <>
+      {showForm && <PopupForm open = {showForm} closeForm={closeForm} />}
+
       {Data.map((data) => (
         <Box maxWidth="750px" margin="auto" key={data._id} color={"inherit"}>
           <Card
@@ -104,6 +117,11 @@ const Feedback = () => {
           </Card>
         </Box>
       ))}
+      <Box sx={{ position: "fixed", bottom: 20, right: 20 }}>
+        <Fab color="secondary" size="large" onClick={openForm}>
+          <AddIcon />
+        </Fab>
+      </Box>
     </>
   );
 };
