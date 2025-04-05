@@ -18,14 +18,6 @@ import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import PopupForm from "./PopupForm";
 
-// const DrawerHeader = styled("div")(({ theme }) => ({
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "flex-end",
-//   padding: theme.spacing(0, 1),
-//   // necessary for content to be below app bar
-//   ...theme.mixins.toolbar,
-// }));
 
 const Feedback = () => {
   const [showForm, setShowForm] = useState(false);
@@ -118,7 +110,7 @@ const Feedback = () => {
         </Box>
       ))}
       <Box sx={{ position: "fixed", bottom: 20, right: 20 }}>
-        <Fab color="secondary" size="large" onClick={openForm}>
+        <Fab color="primary" size="large" onClick={openForm}>
           <AddIcon />
         </Fab>
       </Box>

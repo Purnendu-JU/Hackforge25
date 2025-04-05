@@ -1,7 +1,7 @@
 import "./App.css";
 import { Container } from "@mui/material";
 import Feedback from "./components/Feedback";
-import MiniDrawer from "./components/SideNav";
+// import MiniDrawer from "./components/SideNav";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import HospitalLocation from "./pages/HospitalLocation";
@@ -10,6 +10,7 @@ import Counselling from "./pages/Counselling";
 import NutritionPlanner from "./pages/NutritionPlanner";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
+import SwipeableTemporaryDrawer from "./components/SideNav";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -25,7 +26,7 @@ function App() {
     <>
       <BrowserRouter>
         <Box sx={{ display: "flex" }}>
-          <MiniDrawer />
+          <SwipeableTemporaryDrawer />
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
             <Container>
